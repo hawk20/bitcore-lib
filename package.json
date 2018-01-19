@@ -1,8 +1,8 @@
 {
-  "name": "bitcore-lib",
+  "name": "ufocore-lib",
   "version": "0.15.0",
-  "description": "A pure and powerful JavaScript Bitcoin library.",
-  "author": "BitPay <dev@bitpay.com>",
+  "description": "A pure and powerful JavaScript Ufocoin library.",
+  "author": "DS <dev@ufocoin.net>",
   "main": "index.js",
   "scripts": {
     "lint": "gulp lint",
@@ -11,7 +11,7 @@
     "build": "gulp"
   },
   "keywords": [
-    "bitcoin",
+    "ufocoin",
     "transaction",
     "address",
     "p2p",
@@ -28,7 +28,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore-lib.git"
+    "url": "https://github.com/hawk20/ufocore-lib.git"
   },
   "browser": {
     "request": "browser-request"
@@ -42,7 +42,7 @@
     "lodash": "=4.17.4"
   },
   "devDependencies": {
-    "bitcore-build": "https://github.com/bitpay/bitcore-build.git#d4e8b2b2f1e2c065c3a807dcb6a6250f61d67ab3",
+    "ufocore-build": "https://github.com/hawk20/ufocore-build.git#d4e8b2b2f1e2c065c3a807dcb6a6250f61d67ab3",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
     "gulp": "^3.8.10",

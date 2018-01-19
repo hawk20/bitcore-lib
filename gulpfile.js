@@ -1,5 +1,5 @@
 
 
-var bitcoreTasks = require('bitcore-build');
+var ufocoreTasks = require('ufocore-build');
 
-bitcoreTasks('lib');
+ufocoreTasks('lib');

@@ -1,22 +1,22 @@
 'use strict';
 
 var should = require('chai').should();
-var bitcore = require('../..');
-var Interpreter = bitcore.Script.Interpreter;
-var Transaction = bitcore.Transaction;
-var PrivateKey = bitcore.PrivateKey;
-var Script = bitcore.Script;
-var BN = bitcore.crypto.BN;
-var BufferWriter = bitcore.encoding.BufferWriter;
-var Opcode = bitcore.Opcode;
+var ufocore = require('../..');
+var Interpreter = ufocore.Script.Interpreter;
+var Transaction = ufocore.Transaction;
+var PrivateKey = ufocore.PrivateKey;
+var Script = ufocore.Script;
+var BN = ufocore.crypto.BN;
+var BufferWriter = ufocore.encoding.BufferWriter;
+var Opcode = ufocore.Opcode;
 var _ = require('lodash');
 
-var script_valid = require('../data/bitcoind/script_valid');
-var script_invalid = require('../data/bitcoind/script_invalid');
-var tx_valid = require('../data/bitcoind/tx_valid');
-var tx_invalid = require('../data/bitcoind/tx_invalid');
+var script_valid = require('../data/ufocoind/script_valid');
+var script_invalid = require('../data/ufocoind/script_invalid');
+var tx_valid = require('../data/ufocoind/tx_valid');
+var tx_invalid = require('../data/ufocoind/tx_invalid');
 
-//the script string format used in bitcoind data tests
+//the script string format used in ufocoind data tests
 Script.fromBitcoindString = function(str) {
   var bw = new BufferWriter();
   var tokens = str.split(' ');
@@ -230,7 +230,7 @@ describe('Interpreter', function() {
     var verified = interp.verify(scriptSig, scriptPubkey, spendtx, 0, flags);
     verified.should.equal(expected);
   };
-  describe('bitcoind script evaluation fixtures', function() {
+  describe('ufocoind script evaluation fixtures', function() {
     var testAllFixtures = function(set, expected) {
       var c = 0;
       set.forEach(function(vector) {
@@ -252,7 +252,7 @@ describe('Interpreter', function() {
     testAllFixtures(script_invalid, false);
 
   });
-  describe('bitcoind transaction evaluation fixtures', function() {
+  describe('ufocoind transaction evaluation fixtures', function() {
     var test_txs = function(set, expected) {
       var c = 0;
       set.forEach(function(vector) {
@@ -272,7 +272,7 @@ describe('Interpreter', function() {
             var txoutnum = input[1];
             var scriptPubKeyStr = input[2];
             if (txoutnum === -1) {
-              txoutnum = 0xffffffff; //bitcoind casts -1 to an unsigned int
+              txoutnum = 0xffffffff; //ufocoind casts -1 to an unsigned int
             }
             map[txid + ':' + txoutnum] = Script.fromBitcoindString(scriptPubKeyStr);
           });

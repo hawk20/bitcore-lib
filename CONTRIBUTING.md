@@ -1,14 +1,14 @@
 Contributing to Bitcore
 =======
 
-We're working hard to make *bitcore* the most powerful JavaScript library for working with bitcoin. Our goal is to have *bitcore* be a library that can be used by anyone interested in bitcoin, and to level expertise differences with great design and documentation.
+We're working hard to make *ufocore* the most powerful JavaScript library for working with ufocoin. Our goal is to have *ufocore* be a library that can be used by anyone interested in ufocoin, and to level expertise differences with great design and documentation.
 
 ## Community
 
 If there are any questions, etc., please feel to ask in one of the community channels:
 
-- https://labs.bitpay.com/c/bitcore (Support Forum)
-- https://gitter.im/bitpay/bitcore (Development Chat)
+- https://labs.bitpay.com/c/ufocore (Support Forum)
+- https://gitter.im/bitpay/ufocore (Development Chat)
 
 ## Quick Checklist
 
@@ -20,7 +20,7 @@ Ideally, please make sure to run:
 
 ## Design Guidelines
 
-These are some global design goals in bitcore that any change must adhere.
+These are some global design goals in ufocore that any change must adhere.
 
 ### D1 - Naming Matters
 
@@ -40,7 +40,7 @@ Write a test for all your code. We encourage Test Driven Development so we know 
 
 Interfaces should accept as many types of arguments as possible, so there's no mental tax on using them: we want to avoid questions such as "should I use a string here or a buffer?", "what happens if I'm not sure if the type of this variable is an Address instance or a string with it encoded in base-58?" or "what kind of object will I receive after calling this function?".
 
-Accept a wide variety of use cases and arguments, always return an internal form of an object. For example, the class `PublicKey` can accept strings or buffers with a DER encoded public key (either compressed or uncompressed), another PublicKey, a PrivateKey, or a Point, an instance of the `elliptic.js` library with the point in bitcoin's elliptic curve that represents the public key.
+Accept a wide variety of use cases and arguments, always return an internal form of an object. For example, the class `PublicKey` can accept strings or buffers with a DER encoded public key (either compressed or uncompressed), another PublicKey, a PrivateKey, or a Point, an instance of the `elliptic.js` library with the point in ufocoin's elliptic curve that represents the public key.
 
 ### D4 - Consistency Everywhere
 
@@ -91,7 +91,7 @@ var bufferUtil = require('./util/buffer');
 
 #### G7 - Standard Methods
 
-When possible, bitcore objects should have standard methods on an instance prototype:
+When possible, ufocore objects should have standard methods on an instance prototype:
 * `toObject/toJSON` - A plain JavaScript object that `JSON.stringify` can call
 * `toString` - A string representation of the instance
 * `toBuffer` - A hex Buffer
@@ -116,7 +116,7 @@ var tx = new Transaction(data);
 
 ### Errors
 
-#### E1 - Use bitcore.Errors
+#### E1 - Use ufocore.Errors
 
 We've designed a structure for Errors to follow and are slowly migrating to it.
 
@@ -206,14 +206,14 @@ Don't write long tests, write helper functions to make them be as short and conc
 
 Inputs for tests should not be generated randomly. Also, the type and structure of outputs should be checked.
 
-#### T3 - Require 'bitcore' and Look up Classes from There
+#### T3 - Require 'ufocore' and Look up Classes from There
 
-This helps to make tests more useful as examples, and more independent of where they are placed. This also helps prevent forgetting to include all submodules in the bitcore object.
+This helps to make tests more useful as examples, and more independent of where they are placed. This also helps prevent forgetting to include all submodules in the ufocore object.
 
 DO:
 ```javascript
-var bitcore = require('../');
-var PublicKey = bitcore.PublicKey;
+var ufocore = require('../');
+var PublicKey = ufocore.PublicKey;
 ```
 DON'T:
 ```javascript
@@ -246,7 +246,7 @@ git checkout -b remove/some-file
 
 We expect pull requests to be rebased to the master branch before merging:
 ```sh
-git remote add bitpay git@github.com:bitpay/bitcore.git
+git remote add bitpay git@github.com:bitpay/ufocore.git
 git pull --rebase bitpay master
 ```
 
@@ -258,11 +258,11 @@ git push origin your_branch_name
 git push origin feature/some-new-stuff
 git push origin fix/some-bug
 ```
-Finally go to [github.com/bitpay/bitcore](https://github.com/bitpay/bitcore) in your web browser and issue a new pull request.
+Finally go to [github.com/bitpay/ufocore](https://github.com/bitpay/ufocore) in your web browser and issue a new pull request.
 
-Main contributors will review your code and possibly ask for changes before your code is pulled in to the main repository.  We'll check that all tests pass, review the coding style, and check for general code correctness. If everything is OK, we'll merge your pull request and your code will be part of bitcore.
+Main contributors will review your code and possibly ask for changes before your code is pulled in to the main repository.  We'll check that all tests pass, review the coding style, and check for general code correctness. If everything is OK, we'll merge your pull request and your code will be part of ufocore.
 
 If you have any questions feel free to post them to
-[github.com/bitpay/bitcore/issues](https://github.com/bitpay/bitcore/issues).
+[github.com/bitpay/ufocore/issues](https://github.com/bitpay/ufocore/issues).
 
 Thanks for your time and code!
